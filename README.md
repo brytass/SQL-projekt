@@ -66,7 +66,7 @@ Ve zbývajících **16 odvětvích** alespoň jednou pokles nastal.
 ---
 
 ### 2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období?
-**Česká republika (po sjednocení na FTE – calc_code=200):**
+**Česká republika:**
 - **2006:** chléb **1 211,63 kg**, mléko **1 353,11 l**  
 - **2018:** chléb **1 321,99 kg**, mléko **1 616,91 l**  
 **Rozdíl 2018 − 2006:** **+110,36 kg** chleba a **+263,80 l** mléka.
