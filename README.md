@@ -124,6 +124,4 @@ Největší zjištěný rozdíl (průměrné ceny vs. mzdy) je **pod 10 p. b.** 
 - [5_otazka.sql](5_otazka.sql)
 - [README.md](README.md)
 
-
-
-
+---
