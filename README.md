@@ -109,7 +109,7 @@ Největší zjištěný rozdíl (průměrné ceny vs. mzdy) je **pod 10 p. b.** 
 - **Mzdy:** pracuji s **přepočtenými mzdami**; na národní úrovni používám **vážené průměry** převzaté ze zdroje.
 - **Meziroční změny (YoY):** počítám pomocí `LAG()` v rámci kategorie/odvětví/časové řady.  
 - **„Výrazný růst HDP“:** rok, ve kterém je meziroční změna HDP **nad dlouhodobým průměrem**.  
-- **Jednotky dostupnosti (Q2):** `mzda/cena` vyjadřuje **kg** (chléb) a **l** (mléko).
+- **Jednotky dostupnosti (O2):** `mzda/cena` vyjadřuje **kg** (chléb) a **l** (mléko).
 
 ---
 
