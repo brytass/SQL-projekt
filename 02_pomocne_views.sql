@@ -62,7 +62,7 @@ WHERE
 	AND mezirocni_zmena_ceny > 0 									    -- NULL hodnoty jsou pro rok 2006, kdy není s čím porovnat (data za rok 2005 v datasetu nejsou); chceme jen zdražení, proto větší než 0
 ORDER BY
 		rok,
-		mezirocni_zmena_ceny)
+		mezirocni_zmena_ceny);
 
 -------------------------------
 3. VIEW - meziroční změny mezd
