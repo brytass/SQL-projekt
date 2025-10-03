@@ -52,7 +52,7 @@ Makroekonomická data pro evropské země:
 **Poznámky z query:**
 - Filtruji **Evropu** (`countries.continent = 'Europe'`) a **přebírám jen roky, které existují v primární tabulce**.  
 - Vyřazuji řádky s `e.gdp IS NULL`.  
-- _Poznámka k pokrytí_: **chybí HDP za Gibraltar a Liechtenstein; u Faroe Islands je ve sledovaném období HDP vyplněné jen za rok 2010.**
+- _Poznámka k pokrytí_: **chybí HDP za Gibraltar a Lichtenštejnsko; u Faerských ostrovů je ve sledovaném období HDP vyplněné jen za rok 2010.**
 
 ---
 
@@ -63,8 +63,6 @@ Z dat 2006–2018 mi vychází, že **pouze 3 z 19 odvětví** neměly v žádn�
 **Zdravotní a sociální péče, Zpracovatelský průmysl, Ostatní činnosti.**  
 Ve zbývajících **16 odvětvích** alespoň jednou pokles nastal.
 
-**Poznámka z query:** meziroční klasifikaci `růst / stagnace / pokles` dělám přes `LAG()` v rámci odvětví.
-
 ---
 
 ### 2) Kolik je možné si koupit litrů mléka a kilogramů chleba za první a poslední srovnatelné období?
@@ -73,15 +71,13 @@ Ve zbývajících **16 odvětvích** alespoň jednou pokles nastal.
 - **2018:** chléb **1 321,99 kg**, mléko **1 616,91 l**  
 **Rozdíl 2018 − 2006:** **+110,36 kg** chleba a **+263,80 l** mléka.
 
-**Poznámky z query:**
-- Počítám `průměrná mzda / cena produktu`; jednotky v datech: **kg** (chléb) a **l** (mléko), **počet jednotek = 1**.  
-- Vyrábím dvě perspektivy: **odvětví + ČR** a **pouze ČR**.
+**Poznámky:**
+- SQL dotazy jsem udělal na 2 roviny: **odvětví + ČR** a **pouze ČR**.
 
 ---
 
 ### 3) Která kategorie potravin zdražuje nejpomaleji (nejnižší % meziroční nárůst)?
 Za celé období mi vycházejí **Banány žluté** jako kategorie s **nejnižším průměrným meziročním nárůstem ceny** (≈ **0,81 %**).  
-Pro doplnění uvádím i dlouhodobé tempo růstu jako **CAGR** (≈ **0,60 %**).
 
 **Poznámky z query:**
 - Pro „celé období“ beru **průměrné YoY změny** z pohledu `v_radek_marval_mezirocni_zmeny_cen` (**zohledňuji i zlevnění** – negativní YoY).  
@@ -91,9 +87,7 @@ Pro doplnění uvádím i dlouhodobé tempo růstu jako **CAGR** (≈ **0,60 %**
 
 ### 4) Existuje rok, kdy byly ceny potravin meziročně výrazně výš než mzdy (> 10 p. b.)?
 **Ne.**  
-Největší zjištěný rozdíl (průměrné ceny vs. mzdy) je **pod 10 p. b.**; při pohledu pouze na zdražující kategorie je maximum okolo **9,2 p. b.** (2013).
-
-**Poznámka z query:** porovnávám průměrné YoY změny cen za rok vůči YoY změně mezd v témže roce.
+Největší zjištěný rozdíl (průměrné ceny vs. mzdy) je **pod 10 p. b.** - maximum **6,14 p. b.** (2013).
 
 ---
 
@@ -112,11 +106,24 @@ Největší zjištěný rozdíl (průměrné ceny vs. mzdy) je **pod 10 p. b.**;
 ## 🧪 Metodika a transformace
 
 - **Ceny:** počítám průměrnou roční cenu produktu (agregace přes regiony).  
-- **Mzdy:** pracuji s **přepočtenými mzdami (FTE)**; na národní úrovni používám **vážené průměry** převzaté ze zdroje; **národní mzdu sjednocuji na calc_code=200**.  
+- **Mzdy:** pracuji s **přepočtenými mzdami**; na národní úrovni používám **vážené průměry** převzaté ze zdroje.
 - **Meziroční změny (YoY):** počítám pomocí `LAG()` v rámci kategorie/odvětví/časové řady.  
 - **„Výrazný růst HDP“:** rok, ve kterém je meziroční změna HDP **nad dlouhodobým průměrem**.  
 - **Jednotky dostupnosti (Q2):** `mzda/cena` vyjadřuje **kg** (chléb) a **l** (mléko).
 
 ---
 
-## 🧩 Repo & skripty (doporučená struktura)
+## 🧩 Repo & skripty (struktura)
+
+- [01_vychozi_tabulky.sql](01_vychozi_tabulky.sql)
+- [02_pomocne_views.sql](02_pomocne_views.sql)
+- [1_otazka.sql](1_otazka.sql)
+- [2_otazka.sql](2_otazka.sql)
+- [3_otazka.sql](3_otazka.sql)
+- [4_otazka.sql](4_otazka.sql)
+- [5_otazka.sql](5_otazka.sql)
+- [README.md](README.md)
+
+
+
+
