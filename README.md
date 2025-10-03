@@ -49,7 +49,7 @@ Agregovaná roční data pro ČR:
 Makroekonomická data pro evropské země:
 - **HDP**, **Gini**, **populace** po rocích; filtruji na země s dostupným HDP a na roky přítomné v primární tabulce.
 
-**Poznámky z query:**
+**Poznámky:**
 - Filtruji **Evropu** (`countries.continent = 'Europe'`) a **přebírám jen roky, které existují v primární tabulce**.  
 - Vyřazuji řádky s `e.gdp IS NULL`.  
 - _Poznámka k pokrytí_: **chybí HDP za Gibraltar a Lichtenštejnsko; u Faerských ostrovů je ve sledovaném období HDP vyplněné jen za rok 2010.**
@@ -79,7 +79,7 @@ Ve zbývajících **16 odvětvích** alespoň jednou pokles nastal.
 ### 3) Která kategorie potravin zdražuje nejpomaleji (nejnižší % meziroční nárůst)?
 Za celé období mi vycházejí **Banány žluté** jako kategorie s **nejnižším průměrným meziročním nárůstem ceny** (≈ **0,81 %**).  
 
-**Poznámky z query:**
+**Poznámky:**
 - Pro „celé období“ beru **průměrné YoY změny** z pohledu `v_radek_marval_mezirocni_zmeny_cen` (**zohledňuji i zlevnění** – negativní YoY).  
 - Pro „dle let“ používám pohled `v_radek_marval_mezirocni_zmeny_cen_pouze_ZDRAZENI` (tj. **jen kladné** YoY) a vybírám **nejmenší kladný** YoY v každém roce (`RANK`).
 
