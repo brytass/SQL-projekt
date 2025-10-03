@@ -96,7 +96,7 @@ Největší zjištěný rozdíl (průměrné ceny vs. mzdy) je **pod 10 p. b.** 
 - **HDP → ceny potravin:** vztah je **slabý a nekonzistentní** (ceny ovlivňuje širší sada faktorů).  
 - **Závěr:** Silný přímý vliv HDP na zdražování potravin jsem **neprokázal**; vazba na mzdy je **zřetelnější**.
 
-**Poznámky z query:**
+**Poznámky:**
 - Rok označuji jako **„výrazný růst HDP“**, pokud je meziroční změna HDP **nad dlouhodobým průměrem**.  
 - Porovnávám, zda je „výrazný růst“ vidět u **cen/mezd** v **tom roce** a také přes `LEAD()` v **následujícím roce**.  
 - Pro průměrné změny cen používám pohled, který **zahrnuje i zlevnění** (negativní YoY).
