@@ -18,9 +18,9 @@ GROUP BY
 	rok),
 celkove_prumerne_zmeny AS (
 SELECT
-	avg(mzhdp.mezirocni_zmena_HDP) zaok_celkovy_prumer_zmen_HDP,
-	avg(pmzc.prumerna_mezirocni_zmena_ceny) zaok_celkovy_prumer_zmen_cen,
-	avg(vrmm.mezirocni_zmena_mzdy_cr) zaok_celkovy_prumer_zmen_mezd
+	avg(mzhdp.mezirocni_zmena_HDP) celkovy_prumer_zmen_HDP,
+	avg(pmzc.prumerna_mezirocni_zmena_ceny) celkovy_prumer_zmen_cen,
+	avg(vrmm.mezirocni_zmena_mzdy_cr) celkovy_prumer_zmen_mezd
 FROM
 	mezirocni_zmena_HDP_CR mzhdp
 LEFT JOIN prumerna_mezirocni_zmena_cen_potravin pmzc
@@ -37,7 +37,7 @@ SELECT
 	CASE
 		WHEN mezirocni_zmena_HDP > (
 		SELECT
-			zaok_celkovy_prumer_zmen_HDP
+			celkovy_prumer_zmen_HDP
 		FROM
 			celkove_prumerne_zmeny) THEN 'vyrazny rust HDP'
 		WHEN mezirocni_zmena_HDP < 0 THEN 'pokles HDP'
@@ -46,7 +46,7 @@ SELECT
 	CASE
 		WHEN pmzcp.prumerna_mezirocni_zmena_ceny > (
 		SELECT
-			zaok_celkovy_prumer_zmen_cen
+			celkovy_prumer_zmen_cen
 		FROM
 			celkove_prumerne_zmeny) THEN 'vyrazny rust cen'
 		WHEN pmzcp.prumerna_mezirocni_zmena_ceny < 0 THEN 'pokles cen'
@@ -55,7 +55,7 @@ SELECT
 	CASE
 		WHEN vrmm.mezirocni_zmena_mzdy_cr > (
 		SELECT
-			zaok_celkovy_prumer_zmen_mezd
+			celkovy_prumer_zmen_mezd
 		FROM
 			celkove_prumerne_zmeny) THEN 'vyrazny rust mezd'
 		WHEN vrmm.mezirocni_zmena_mzdy_cr < 0 THEN 'pokles mezd'
